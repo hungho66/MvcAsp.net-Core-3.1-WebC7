@@ -1,0 +1,43 @@
+﻿<Properties StartupConfiguration="{2BDD01F0-50F6-4365-BC13-FB4DF1A088AB}|Default">
+  <MonoDevelop.Ide.ItemProperties.MvcMovie PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MvcMovie/Models/SeedData.cs">
+    <Files>
+      <File FileName="MvcMovie/Controllers/HelloWorldController.cs" Line="18" Column="27" />
+      <File FileName="MvcMovie/Views/HelloWorld/Index.cshtml" />
+      <File FileName="MvcMovie/Views/Shared/_Layout.cshtml" />
+      <File FileName="MvcMovie/Views/HelloWorld/Welcome.cshtml" />
+      <File FileName="MvcMovie/Models/Movie.cs" Line="32" Column="43" />
+      <File FileName="MvcMovie/Data/MvcMovieContext.cs" Line="6" Column="18" />
+      <File FileName="MvcMovie/appsettings.json" />
+      <File FileName="MvcMovie/Data/ApplicationDbContext.cs" />
+      <File FileName="MvcMovie/Controllers/MoviesController.cs" Line="89" Column="14" />
+      <File FileName="MvcMovie/Views/Movies/Details.cshtml" Line="42" Column="7" />
+      <File FileName="MvcMovie/Views/Movies/Index.cshtml" Line="61" Column="18" />
+      <File FileName="MvcMovie/Models/SeedData.cs" Line="35" Column="40" />
+      <File FileName="MvcMovie/Program.cs" Line="15" Column="56" />
+      <File FileName="MvcMovie/Models/MovieGenreViewModel.cs" Line="13" Column="2" />
+      <File FileName="MvcMovie/Views/Movies/Create.cshtml" Line="24" Column="69" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MvcMovie" expanded="True">
+            <Node name="MvcMovie" expanded="True">
+              <Node name="Data" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="SeedData.cs" selected="True" />
+              </Node>
+              <Node name="Views" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
