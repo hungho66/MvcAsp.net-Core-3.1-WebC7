@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "/Users/apple/Downloads/IT_CNPM/C#/Web Developer C7/Exercise/ExerciseAspNetCore/MvcMovie/MvcMovie/MvcMovie.csproj": {}
+    "/Users/apple/Downloads/GitHub/MvcAsp.net-Core-3.1-WebC7/MvcMovie/MvcMovie/MvcMovie.csproj": {}
   },
   "projects": {
-    "/Users/apple/Downloads/IT_CNPM/C#/Web Developer C7/Exercise/ExerciseAspNetCore/MvcMovie/MvcMovie/MvcMovie.csproj": {
+    "/Users/apple/Downloads/GitHub/MvcAsp.net-Core-3.1-WebC7/MvcMovie/MvcMovie/MvcMovie.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/apple/Downloads/IT_CNPM/C#/Web Developer C7/Exercise/ExerciseAspNetCore/MvcMovie/MvcMovie/MvcMovie.csproj",
+        "projectUniqueName": "/Users/apple/Downloads/GitHub/MvcAsp.net-Core-3.1-WebC7/MvcMovie/MvcMovie/MvcMovie.csproj",
         "projectName": "MvcMovie",
-        "projectPath": "/Users/apple/Downloads/IT_CNPM/C#/Web Developer C7/Exercise/ExerciseAspNetCore/MvcMovie/MvcMovie/MvcMovie.csproj",
+        "projectPath": "/Users/apple/Downloads/GitHub/MvcAsp.net-Core-3.1-WebC7/MvcMovie/MvcMovie/MvcMovie.csproj",
         "packagesPath": "/Users/apple/.nuget/packages/",
-        "outputPath": "/Users/apple/Downloads/IT_CNPM/C#/Web Developer C7/Exercise/ExerciseAspNetCore/MvcMovie/MvcMovie/obj/",
+        "outputPath": "/Users/apple/Downloads/GitHub/MvcAsp.net-Core-3.1-WebC7/MvcMovie/MvcMovie/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/apple/.nuget/NuGet/NuGet.Config"
+          "/Users/apple/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WHdIRy/bQbPc4w9/LsuWmLqk4UAYSNsCRAtZBoQV4YmxyUdqVKnTwhRiIAqxQZ1BEsw31ouAWPrKxS/VTOTJoA==",
+  "dgSpecHash": "t73AjLoYPslv5SQr5e1l4e8bGpJwPABn5cq1xt6ffaNzn6v28dJZkSCxwpbC/zflAAkvkHSz1drU5W/4VYK5fg==",
   "success": true,
-  "projectFilePath": "/Users/apple/Downloads/IT_CNPM/C#/Web Developer C7/Exercise/ExerciseAspNetCore/MvcMovie/MvcMovie/MvcMovie.csproj",
+  "projectFilePath": "/Users/apple/Downloads/GitHub/MvcAsp.net-Core-3.1-WebC7/MvcMovie/MvcMovie/MvcMovie.csproj",
   "expectedPackageFiles": [
     "/Users/apple/.nuget/packages/microsoft.aspnetcore.cryptography.internal/3.1.8/microsoft.aspnetcore.cryptography.internal.3.1.8.nupkg.sha512",
     "/Users/apple/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/3.1.8/microsoft.aspnetcore.cryptography.keyderivation.3.1.8.nupkg.sha512",

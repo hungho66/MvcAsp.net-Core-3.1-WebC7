@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="31181023685hothanhhung" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^/Users/apple/Downloads/GitHub/MvcAsp\.net-Core-3\.1-WebC7/MvcMovie/MvcMovie/obj/Release/netcoreapp3\.1/PubTmp/Out/$" />
+  </parameter>
+</parameters>
