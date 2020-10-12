@@ -7,6 +7,7 @@ using MovieAsp.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MovieAsp
 {
@@ -27,6 +28,10 @@ namespace MovieAsp
                     Configuration.GetConnectionString("MovieDBContext")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<MovieDBContext>();
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(100);
+            });            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
             services.AddControllersWithViews();
             services.AddRazorPages();
 
@@ -51,12 +56,11 @@ namespace MovieAsp
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseAuthentication();
             app.UseRouting();
 
             app.UseSession();
 
-            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

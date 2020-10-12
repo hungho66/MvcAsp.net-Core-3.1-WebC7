@@ -10,8 +10,8 @@ using MovieAsp.Data;
 namespace MovieAsp.Migrations
 {
     [DbContext(typeof(MovieDBContext))]
-    [Migration("20201010184024_InitialCreate2")]
-    partial class InitialCreate2
+    [Migration("20201012081128_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -123,6 +123,36 @@ namespace MovieAsp.Migrations
                     b.HasIndex("genreId");
 
                     b.ToTable("Movies");
+                });
+
+            modelBuilder.Entity("MovieAsp.Models.ShippingDetail", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Mobile")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ReleaseDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("ShippingDetails");
                 });
 
             modelBuilder.Entity("MovieAsp.Models.ChiTietHoaDon", b =>

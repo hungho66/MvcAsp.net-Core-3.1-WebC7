@@ -13,16 +13,14 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var hoaDonChiTiet in
-   Model.ChiTietHoaDons)
+        @foreach (var hoaDonChiTiet in Model.ChiTietHoaDons)
         {
             <tr>
                 <td class="text-center">@hoaDonChiTiet.SoLuong</td>
                 <td class="text-left">@hoaDonChiTiet.MovieObj.Title</td>
                 <td class="textright">@hoaDonChiTiet.MovieObj.Price.ToString("c")</td>
                 <td class="text-right">
-                    @((hoaDonChiTiet.SoLuong *
-hoaDonChiTiet.MovieObj.Price).ToString("c"))
+                    @((hoaDonChiTiet.SoLuong *hoaDonChiTiet.MovieObj.Price).ToString("c"))
                 </td>
                 <td>
                     @Html.ActionLink("Remove", "RemoveFromCart",
@@ -44,11 +42,11 @@ hoaDonChiTiet.MovieObj.Price).ToString("c"))
     </tfoot>
 </table>
 <div class="text-center">
-    @Html.ActionLink("Continue shopping", "Index", null, new
+    @Html.ActionLink("Continue shopping", "Index", new
     {
-    @class = "btn btn-primary"
+ @class = "btn btn-primary"
     })
-    @Html.ActionLink("Checkout now", "Checkout", null, new
+    @Html.ActionLink("Checkout now", "Checkout", new
     {
     @class = "btn btn-primary"
     })
