@@ -10,8 +10,8 @@ using MovieAsp.Data;
 namespace MovieAsp.Migrations
 {
     [DbContext(typeof(MovieDBContext))]
-    [Migration("20201010190416_create3")]
-    partial class create3
+    [Migration("20201012081401_ThemHoaDon")]
+    partial class ThemHoaDon
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

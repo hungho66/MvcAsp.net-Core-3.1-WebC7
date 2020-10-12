@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,17 +11,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MovieAsp.Data;
 using MovieAsp.Models;
+using MovieAsp.Utils;
 
 namespace MovieAsp.Controllers
 {
     public class MoviesController : Controller
     {
         private readonly MovieDBContext _context;
-
         public MoviesController(MovieDBContext context)
         {
             _context = context;
+       
         }
+
+
+        public IActionResult HomeView()
+        {
+            return View();
+        }
+
 
         // GET: Movies
         public async Task<IActionResult> Index()
@@ -49,6 +58,7 @@ namespace MovieAsp.Controllers
         // GET: Movies/Create
         public IActionResult Create()
         {
+            ViewBag.ListGenre = _context.Genres.Select(x => new SelectListItem(){ Text = x.Name, Value = x.ID.ToString() }).Distinct().ToList();
             return View();
         }
 
@@ -59,6 +69,10 @@ namespace MovieAsp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Title,Summary,ReleaseDate,Genre,Price,Rated,PicturePath")] Movie movie)
         {
+
+            ViewBag.ListGenre = _context.Genres.Select(x => new SelectListItem()
+            { Text = x.Name, Value = x.ID.ToString() }).Distinct().ToList();
+
             if (ModelState.IsValid)
             {
                 _context.Add(movie);
@@ -83,12 +97,8 @@ namespace MovieAsp.Controllers
                 //Kiem bat ky hinh No Image tren internet
                 movie.PicturePath = "/images/no-image.jpg";
             }
-
-            var db = new MovieDBContext();
-            ViewBag.ListGenre = db.Genres.Select(x => new SelectListItem()
-            { Text = x.Name, Value = x.ID.ToString() }).Distinct().ToList();
-
             _context.Add(movie);
+
 
             return View(movie);
         }
@@ -96,6 +106,9 @@ namespace MovieAsp.Controllers
         // GET: Movies/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+
+            ViewBag.ListGenre = _context.Genres.Select(x => new SelectListItem()
+            { Text = x.Name, Value = x.ID.ToString() }).Distinct().ToList();
             if (id == null)
             {
                 return NotFound();
@@ -194,7 +207,8 @@ namespace MovieAsp.Controllers
             return _context.Movies.Any(e => e.ID == id);
         }
 
-        public ActionResult AddToCart(int id)
+
+        public ActionResult AddToCart(int id, HoaDon hoaDon)
         {
             //Kiem tra Id movie ton tai hay khong
             var movie = _context.Movies.Where(x => x.ID
@@ -203,8 +217,6 @@ namespace MovieAsp.Controllers
             {
                 return RedirectToAction("Index");
             }
-            var hoaDon =
-            HttpContext.Session.Get<HoaDon>("HoaDon");
             if (hoaDon == null)
             {
                 hoaDon = new HoaDon();
@@ -231,15 +243,16 @@ namespace MovieAsp.Controllers
             {
                 chiTietHoaDon.SoLuong++;
             }
-            HttpContext.Session.Set<HoaDon>("HoaDon", hoaDon);
-            _context.SaveChanges();
 
+            //HttpContext.Session.Set<HoaDon>("HoaDon", hoaDon);
+            _context.SaveChanges();
             return View(hoaDon);
+
         }
 
-        public ActionResult RemoveFromCart(int maMovies)
+
+        public ActionResult RemoveFromCart(int maMovies, HoaDon hoaDon)
         {
-            var hoaDon = HttpContext.Session.Get<HoaDon>("HoaDon");
             var chiTietHoaDon = hoaDon.ChiTietHoaDons.Where(x =>
             x.MovieObj.ID == maMovies).FirstOrDefault();
             hoaDon.ChiTietHoaDons.Remove(chiTietHoaDon);
@@ -247,9 +260,8 @@ namespace MovieAsp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Checkout(ShippingDetail detail)
+        public ActionResult Checkout(ShippingDetail detail, HoaDon hoaDon)
         {
-            var hoaDon = HttpContext.Session.Get<HoaDon>("HoaDon");
             if (hoaDon.ChiTietHoaDons.Count() == 0)
             {
                 ModelState.AddModelError("", "Sorry, your cart is empty!");
@@ -282,6 +294,7 @@ namespace MovieAsp.Controllers
                 return View(new ShippingDetail());
             }
 
-        }       
+        }
+
     }
 }

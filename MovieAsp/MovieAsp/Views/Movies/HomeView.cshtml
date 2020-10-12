@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MovieAsp.Models.Movie>
+
+@{
+    ViewData["Title"] = "HomeView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row grid-demo">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <img src="@item.PicturePath"
+                     style="width: 200px;" />
+                <p>
+                    @Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(modelItem =>item.Title)
+                </p>
+                <p>
+                    @Html.DisplayNameFor(model => model.Rated): @Html.DisplayFor(modelItem =>item.Rated)
+                </p>
+                <p>
+                    @Html.DisplayNameFor(model => model.Price): @Html.DisplayFor(modelItem =>item.Price)
+                </p>
+                <p>
+                    @Html.DisplayNameFor(model => model.Summary): @Html.DisplayFor(modelItem =>item.Summary)
+                </p>
+                <p>
+                    @Html.DisplayNameFor(model => model.ReleaseDate): @Html.DisplayFor(modelItem =>item.ReleaseDate)
+                </p>
+                <p>
+                    @Html.DisplayNameFor(model => model.Genre): @Html.DisplayFor(modelItem =>item.genre.Name)
+                </p>
+            </div>
+        }
+    </div>
+</div>

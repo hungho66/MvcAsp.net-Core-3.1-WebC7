@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using MovieAsp.Data;
 
 namespace MovieAsp.Models
@@ -43,11 +44,9 @@ namespace MovieAsp.Models
         [NotMapped]
         [Display(Name = "Hình ảnh")]
         public IFormFile PictureUpload { get; set; }
-
         public class CheckDateGreaterThanTodayAttribute : ValidationAttribute
         {
-            protected override ValidationResult IsValid(object value, ValidationContext
-            validationContext)
+            protected override ValidationResult IsValid(object value, ValidationContext validationContext)
             {
                 DateTime dt = (DateTime)value;
                 if (dt >= DateTime.UtcNow)
@@ -56,22 +55,27 @@ namespace MovieAsp.Models
                 }
                 return new ValidationResult(ErrorMessage ?? "Dữ liệu ngày phải lớn hơn ngày hôm nay");
             }
-        }
 
+        }
         public class GenreAttribute : ValidationAttribute
         {
             protected override ValidationResult IsValid(object value,
             ValidationContext validationContext)
             {
-                int genreID = int.Parse(value.ToString());
-                var db = new MovieDBContext();
-                if (db.Genres.Any(x => x.ID == genreID))
+                //var db = new MovieDBContext();
+                //int genreID = int.Parse(value.ToString());
+                if (/*db.Genres.Any(x => x.ID == genreID)*/true)
                 {
                     return ValidationResult.Success;
                 }
+
                 return new ValidationResult(
                 ErrorMessage ?? "Genre khong ton tai");
             }
         }
+
+
     }
+
 }
+
